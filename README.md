@@ -7,7 +7,7 @@ If you want to use `pipenv`:
 pipenv shell && pipenv install
 ```
 
-To run go to `pokemons` folder and execute spider crawling:
+To run go to `pokemon` folder and execute spider crawling:
 ```shell
-(venv) cd pokemons && scrapy crawl pokemons
+(venv) cd pokemon && scrapy crawl pokemon
 ```

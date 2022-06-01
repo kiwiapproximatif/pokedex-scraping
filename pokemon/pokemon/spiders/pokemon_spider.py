@@ -5,9 +5,9 @@ import scrapy
 from .pokemon import Pokemon
 
 
-class PokemonsSpider(scrapy.Spider):
-    name: str = 'pokemons'
-    FILE_NAME: str = 'pokemons.csv'
+class PokemonSpider(scrapy.Spider):
+    name: str = 'pokemon'
+    FILE_NAME: str = 'pokemon.csv'
     FILE_HEADERS: str = 'name,number,types,weaknesses,stats,stats_name\n'
     DEFAULT_LANG = 'fr'
     DEFAULT_URL: str = f'https://www.pokemon.com/{DEFAULT_LANG}/pokedex'

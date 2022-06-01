@@ -7,10 +7,10 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'pokemons'
+BOT_NAME = 'pokemon'
 
-SPIDER_MODULES = ['pokemons.spiders']
-NEWSPIDER_MODULE = 'pokemons.spiders'
+SPIDER_MODULES = ['pokemon.spiders']
+NEWSPIDER_MODULE = 'pokemon.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
