@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Set
 
 
 class Pokemon:
@@ -6,9 +6,9 @@ class Pokemon:
         self._name: str = ''
         self._number: int = 0
         self._types: List[str] = []
-        self._weaknesses: List[str] = []
+        self._weaknesses: Set[str] = set()
         self._stats: List[int] = []
-        self._stats_name: List[str] = []
+        self._stats_name: Set[str] = set()
 
     def __repr__(self):
         s = f'{self._name}\n'
@@ -39,4 +39,4 @@ class Pokemon:
         self._stats_name = s
 
     def get_csv_line(self) -> str:
-        return f'{self._name},{self._number},{self._types},{self._weaknesses},{self._stats},{self._stats_name}\n'
+        return f'{self._name},{self._number},{list(self._types)},{list(self._weaknesses)},{self._stats},{list(self._stats_name)}\n'

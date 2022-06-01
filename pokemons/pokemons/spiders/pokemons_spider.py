@@ -11,7 +11,7 @@ class PokemonsSpider(scrapy.Spider):
     FILE_HEADERS: str = 'name,number,types,weaknesses,stats,stats_name\n'
     DEFAULT_LANG = 'fr'
     DEFAULT_URL: str = f'https://www.pokemon.com/{DEFAULT_LANG}/pokedex'
-    POKEMONS_NUMBER = 906
+    POKEMONS_NUMBER = 50
 
     def start_requests(self):
         urls: List[str] = [f'{self.DEFAULT_URL}/{i}' for i in range(1, self.POKEMONS_NUMBER)]
@@ -44,10 +44,10 @@ class PokemonsSpider(scrapy.Spider):
                     'div.push-1 div.pokemon-stats-info ul li span::text'
                 ).getall()
 
-                pokemon.set_types([t.rstrip() for t in types])
-                pokemon.set_weaknesses([w.rstrip() for w in weaknesses])
+                pokemon.set_types(set([t.rstrip() for t in types]))
+                pokemon.set_weaknesses(set([w.rstrip() for w in weaknesses]))
                 pokemon.set_stats([int(s.rstrip()) for s in stats])
-                pokemon.set_stats_name([s.rstrip() for s in stats_name])
+                pokemon.set_stats_name(set([s.rstrip() for s in stats_name]))
 
             pokemon.set_name(name)
             pokemon.set_number(number.split('.')[1])
