@@ -1,4 +1,4 @@
-# pokedex-scraping
+# pokemon-scraping
 
 Tested on **June 01, 2022**.
 
