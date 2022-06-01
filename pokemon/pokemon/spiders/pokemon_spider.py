@@ -11,7 +11,7 @@ class PokemonSpider(scrapy.Spider):
     FILE_HEADERS: str = 'name,number,types,weaknesses,stats,stats_name\n'
     DEFAULT_LANG = 'fr'
     DEFAULT_URL: str = f'https://www.pokemon.com/{DEFAULT_LANG}/pokedex'
-    POKEMONS_NUMBER = 50
+    POKEMONS_NUMBER = 906
 
     def start_requests(self):
         urls: List[str] = [f'{self.DEFAULT_URL}/{i}' for i in range(1, self.POKEMONS_NUMBER)]
