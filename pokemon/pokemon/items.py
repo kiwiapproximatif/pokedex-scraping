@@ -2,7 +2,7 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
-from typing import List, Set
+from typing import List
 
 import scrapy
 

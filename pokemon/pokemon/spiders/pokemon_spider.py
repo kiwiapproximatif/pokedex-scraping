@@ -9,7 +9,6 @@ from ..settings import DEFAULT_URL, POKEMONS_NUMBER, FILE_NAME, FILE_HEADERS
 class PokemonSpider(scrapy.Spider):
     name: str = 'pokemon'
 
-
     def start_requests(self):
         urls: List[str] = [f'{DEFAULT_URL}/{i}' for i in range(1, POKEMONS_NUMBER)]
 
