@@ -5,14 +5,13 @@
 
 
 # useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
+
+from .settings import FILE_NAME
 
 
 class PokemonPipeline:
-    FILE_NAME: str = 'pokemon.csv'
-
     def process_item(self, item, spider):
-        with open(self.FILE_NAME, 'a') as f:
+        with open(FILE_NAME, 'a') as f:
             line: str = f"{item['name']},{item['number']},{item['types']},{item['weaknesses']},{item['stats']},{item['stats_name']}\n"
             f.write(line)
 

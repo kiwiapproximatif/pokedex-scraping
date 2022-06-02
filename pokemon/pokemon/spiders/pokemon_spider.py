@@ -3,21 +3,18 @@ from typing import List
 import scrapy
 
 from ..items import PokemonItem
+from ..settings import DEFAULT_URL, POKEMONS_NUMBER, FILE_NAME, FILE_HEADERS
 
 
 class PokemonSpider(scrapy.Spider):
     name: str = 'pokemon'
-    FILE_NAME: str = 'pokemon.csv'
-    FILE_HEADERS: str = 'name,number,types,weaknesses,stats,stats_name\n'
-    DEFAULT_LANG = 'fr'
-    DEFAULT_URL: str = f'https://www.pokemon.com/{DEFAULT_LANG}/pokedex'
-    POKEMONS_NUMBER = 906
+
 
     def start_requests(self):
-        urls: List[str] = [f'{self.DEFAULT_URL}/{i}' for i in range(1, self.POKEMONS_NUMBER)]
+        urls: List[str] = [f'{DEFAULT_URL}/{i}' for i in range(1, POKEMONS_NUMBER)]
 
-        with open(self.FILE_NAME, 'w') as f:
-            f.write(self.FILE_HEADERS)
+        with open(FILE_NAME, 'w') as f:
+            f.write(FILE_HEADERS)
 
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
