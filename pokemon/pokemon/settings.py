@@ -12,10 +12,10 @@ BOT_NAME = 'pokemon'
 SPIDER_MODULES = ['pokemon.spiders']
 NEWSPIDER_MODULE = 'pokemon.spiders'
 
-FILE_NAME: str = 'pokemon.csv'
-FILE_HEADERS: str = 'name,number,types,weaknesses,stats,stats_name\n'
+FILE_NAME = 'pokemon.csv'
+FILE_HEADERS = 'name,number,types,weaknesses,stats,stats_name\n'
 DEFAULT_LANG = 'fr'
-DEFAULT_URL: str = f'https://www.pokemon.com/{DEFAULT_LANG}/pokedex'
+DEFAULT_URL = f'https://www.pokemon.com/{DEFAULT_LANG}/pokedex'
 POKEMONS_NUMBER = 906
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
