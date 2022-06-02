@@ -20,6 +20,7 @@ class PokemonSpider(scrapy.Spider):
 
     def parse(self, response, **kwargs):
         pokemon: PokemonItem = PokemonItem()
+
         for container in response.css('div.container'):
             name: str = container.css('div.pokedex-pokemon-pagination-title div::text').get().strip()
             number: str = container.css('div.pokedex-pokemon-pagination-title div span::text').get().rstrip()
@@ -48,4 +49,4 @@ class PokemonSpider(scrapy.Spider):
             pokemon['name'] = name
             pokemon['number'] = number.split('.')[1]
 
-        yield pokemon
+            yield pokemon
