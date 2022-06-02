@@ -2,7 +2,7 @@ from typing import List
 
 import scrapy
 
-from .pokemon import Pokemon
+from ..items import PokemonItem
 
 
 class PokemonSpider(scrapy.Spider):
@@ -23,7 +23,7 @@ class PokemonSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response, **kwargs):
-        pokemon: Pokemon = Pokemon()
+        pokemon: PokemonItem = PokemonItem()
         for container in response.css('div.container'):
             name: str = container.css('div.pokedex-pokemon-pagination-title div::text').get().strip()
             number: str = container.css('div.pokedex-pokemon-pagination-title div span::text').get().rstrip()
@@ -44,14 +44,12 @@ class PokemonSpider(scrapy.Spider):
                     'div.push-1 div.pokemon-stats-info ul li span::text'
                 ).getall()
 
-                pokemon.set_types(set([t.rstrip() for t in types]))
-                pokemon.set_weaknesses(set([w.rstrip() for w in weaknesses]))
-                pokemon.set_stats([int(s.rstrip()) for s in stats])
-                pokemon.set_stats_name(set([s.rstrip() for s in stats_name]))
+                pokemon['types'] = list(set([t.rstrip() for t in types]))
+                pokemon['weaknesses'] = list(set([w.rstrip() for w in weaknesses]))
+                pokemon['stats'] = [int(s.rstrip()) for s in stats]
+                pokemon['stats_name'] = list(set([s.rstrip() for s in stats_name]))
 
-            pokemon.set_name(name)
-            pokemon.set_number(number.split('.')[1])
+            pokemon['name'] = name
+            pokemon['number'] = number.split('.')[1]
 
-        with open(self.FILE_NAME, 'a') as f:
-            line: str = pokemon.get_csv_line()
-            f.write(line)
+        yield pokemon
