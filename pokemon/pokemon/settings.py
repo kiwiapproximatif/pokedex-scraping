@@ -14,7 +14,7 @@ NEWSPIDER_MODULE = 'pokemon.spiders'
 
 FILE_NAME = 'pokemon.csv'
 FILE_HEADERS = 'name,number,types,weaknesses,stats,stats_name\n'
-DEFAULT_LANG = 'fr'
+DEFAULT_LANG = 'us'
 DEFAULT_URL = f'https://www.pokemon.com/{DEFAULT_LANG}/pokedex'
 POKEMONS_NUMBER = 906
 

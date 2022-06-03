@@ -9,7 +9,7 @@ import scrapy
 
 class PokemonItem(scrapy.Item):
     name: str = scrapy.Field()
-    number: int = scrapy.Field()
+    number: str = scrapy.Field()
     types: List[str] = scrapy.Field()
     weaknesses: List[str] = scrapy.Field()
     stats: List[int] = scrapy.Field()

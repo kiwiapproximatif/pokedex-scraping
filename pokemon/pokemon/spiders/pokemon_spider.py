@@ -47,6 +47,6 @@ class PokemonSpider(scrapy.Spider):
                 pokemon['stats_name'] = list(set([s.rstrip() for s in stats_name]))
 
             pokemon['name'] = name
-            pokemon['number'] = number.split('.')[1]
+            pokemon['number'] = number
 
             yield pokemon
