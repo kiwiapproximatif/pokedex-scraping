@@ -6,12 +6,12 @@
 
 # useful for handling different item types with a single interface
 
-from .settings import FILE_NAME
+from .settings import FILE_NAME, DEFAULT_LANG
 
 
 class PokemonPipeline:
     def process_item(self, item, spider):
-        with open(FILE_NAME, 'a') as f:
+        with open(f'{FILE_NAME}_{DEFAULT_LANG}.csv', 'a') as f:
             line: str = f"{item['name']},{item['number']},{item['types']},{item['weaknesses']},{item['stats']},{item['stats_name']}\n"
             f.write(line)
 

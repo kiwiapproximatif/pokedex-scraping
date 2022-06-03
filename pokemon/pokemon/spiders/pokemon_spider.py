@@ -3,7 +3,7 @@ from typing import List
 import scrapy
 
 from ..items import PokemonItem
-from ..settings import DEFAULT_URL, POKEMONS_NUMBER, FILE_NAME, FILE_HEADERS
+from ..settings import DEFAULT_URL, POKEMONS_NUMBER, FILE_NAME, FILE_HEADERS, DEFAULT_LANG
 
 
 class PokemonSpider(scrapy.Spider):
@@ -12,7 +12,7 @@ class PokemonSpider(scrapy.Spider):
     def start_requests(self):
         urls: List[str] = [f'{DEFAULT_URL}/{i}' for i in range(1, POKEMONS_NUMBER)]
 
-        with open(FILE_NAME, 'w') as f:
+        with open(f'{FILE_NAME}_{DEFAULT_LANG}.csv', 'w') as f:
             f.write(FILE_HEADERS)
 
         for url in urls:

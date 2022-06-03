@@ -12,7 +12,7 @@ BOT_NAME = 'pokemon'
 SPIDER_MODULES = ['pokemon.spiders']
 NEWSPIDER_MODULE = 'pokemon.spiders'
 
-FILE_NAME = 'pokemon.csv'
+FILE_NAME = 'pokemon'
 FILE_HEADERS = 'name,number,types,weaknesses,stats,stats_name\n'
 DEFAULT_LANG = 'us'
 DEFAULT_URL = f'https://www.pokemon.com/{DEFAULT_LANG}/pokedex'
