@@ -9,6 +9,8 @@ If you want to use `pipenv`:
 pipenv shell && pipenv install
 ```
 
+Note : ***Don't forget to configure the crawler `pokemon/pokemon/settings.py`.***
+
 To run go to `pokemon` folder and execute spider crawling:
 ```shell
 (venv) cd pokemon && scrapy crawl pokemon
