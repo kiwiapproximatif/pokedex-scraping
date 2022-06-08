@@ -14,9 +14,10 @@ NEWSPIDER_MODULE = 'pokemon.spiders'
 
 FILE_NAME = 'pokemon'
 FILE_HEADERS = 'name,number,types,weaknesses,stats,stats_name\n'
-DEFAULT_LANG = 'us'
+DEFAULT_LANG = 'fr'
 DEFAULT_URL = f'https://www.pokemon.com/{DEFAULT_LANG}/pokedex'
 POKEMONS_NUMBER = 906
+BATCH_SIZE = 100
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'pokemons (+http://www.yourdomain.com)'
