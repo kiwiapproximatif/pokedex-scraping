@@ -2,7 +2,7 @@
 
 A small project to retrieve information about all Pokemon from the official pokedex.
 
-Tested on **June 08, 2022**.
+Tested on **June 17, 2022**.
 
 If you want to use `pipenv`:
 ```shell
