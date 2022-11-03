@@ -1,29 +1,27 @@
-# Scrapy settings for pokemons project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     https://docs.scrapy.org/en/latest/topics/settings.html
-#     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import os
 
-BOT_NAME = 'pokemon'
+from dotenv import load_dotenv
 
-SPIDER_MODULES = ['pokemon.spiders']
-NEWSPIDER_MODULE = 'pokemon.spiders'
 
-FILE_NAME = 'pokemon'
-FILE_HEADERS = 'name,number,types,weaknesses,stats,stats_name\n'
-DEFAULT_LANG = 'fr'
-DEFAULT_URL = f'https://www.pokemon.com/{DEFAULT_LANG}/pokedex'
-POKEMONS_NUMBER = 906
-BATCH_SIZE = 100
+load_dotenv()
+
+BOT_NAME: str = 'pokemon'
+
+SPIDER_MODULES: list[str] = ['pokemon.spiders']
+NEWSPIDER_MODULE: str = 'pokemon.spiders'
+
+FILE_NAME: str = os.environ.get('FILE_NAME', 'pokemon')
+FILE_HEADERS: str = os.environ.get('FILE_HEADERS', 'name,number,types,weaknesses,stats,stats_name\n')
+DEFAULT_LANG: str = os.environ.get('DEFAULT_LANG', 'fr')
+DEFAULT_URL: str = os.environ.get('DEFAULT_URL', f'https://www.pokemon.com/{DEFAULT_LANG}/pokedex')
+POKEMONS_NUMBER: int = os.environ.get('POKEMON_NUMBER', 906)
+BATCH_SIZE: int = os.environ.get('BATCH_SIZE', 100)
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'pokemons (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = False
+ROBOTSTXT_OBEY: bool = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # CONCURRENT_REQUESTS = 32
@@ -68,7 +66,7 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
+ITEM_PIPELINES: dict = {
     'pokemon.pipelines.PokemonPipeline': 300,
 }
 

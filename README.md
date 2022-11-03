@@ -2,12 +2,12 @@
 
 A small project to retrieve information about all Pokemon from the official pokedex.
 
-If you want to use `pipenv`:
+The project is configured with `poetry`, to initiate, you can do this :
 ```shell
-pipenv shell && pipenv install
+poetry shell && poetry install
 ```
 
-Note : ***Don't forget to configure the crawler `pokemon/pokemon/settings.py`.***
+Note : ***Don't forget to configure the crawler via a .env file. (see .env.example)***
 
 To run go to `pokemon` folder and execute spider crawling:
 ```shell
