@@ -1,4 +1,4 @@
-# pokemon-scraping
+# Pokemon Scraping
 
 A small project to retrieve information about all Pokemon from the official pokedex.
 
