@@ -1,5 +1,3 @@
-# Pokescrap
-
 A small project to retrieve information about all Pokemon from the official pokedex.
 
 The project is configured with `poetry`, to initiate, you can do this :
